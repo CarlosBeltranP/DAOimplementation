@@ -13,7 +13,12 @@
   	Id del alumno a buscar:<br>
   	<input type="number" name="cod"><br>
 
-  	<input type="submit" value="Buscar">
+  	<input type="submit" value="Buscar/Editar">
+  	<input type="submit" name= "elim" value="Eliminar" >
   	</form>
+  	<form action="${pageContext.request.contextPath}/save" method="post">
+  	<input type="submit" value="Agregar un nuevo alumno">
+  	</form>
+  	
 </body>
 </html>

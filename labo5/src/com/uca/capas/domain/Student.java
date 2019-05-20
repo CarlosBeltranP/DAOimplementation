@@ -5,7 +5,10 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -13,6 +16,8 @@ import javax.persistence.Table;
 public class Student {
 	
 	@Id
+	@GeneratedValue (generator="student_id_student_seq",strategy=GenerationType.AUTO)
+	@SequenceGenerator(name="student_id_student_seq",sequenceName="public.student_id_student_seq",allocationSize=1)
 	@Column(name="id_student")
 	private Integer cStudent;
 	
@@ -29,9 +34,9 @@ public class Student {
 	private Boolean bActivo;
 
 	//Constructores, Setters y Getters
-	public Student(Integer cCLiente, String sName, String lName, Integer sAge, Boolean bActivo) {
+	public Student(Integer cStudent, String sName, String lName, Integer sAge, Boolean bActivo) {
 		super();
-		this.cStudent = cCLiente;
+		this.cStudent = cStudent;
 		this.sName = sName;
 		this.lName = lName;
 		this.sAge = sAge;
@@ -47,13 +52,13 @@ public class Student {
 
 
 	//Setters y Getters
-	public Integer getcCLiente() {
+	public Integer getcStudent() {
 		return cStudent;
 	}
 
 	
-	public void setcCLiente(Integer cCLiente) {
-		this.cStudent = cCLiente;
+	public void setcStudent(Integer cStudent) {
+		this.cStudent = cStudent;
 	}
 
 	public String getsName() {
